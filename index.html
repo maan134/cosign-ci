@@ -1,1 +1,22 @@
-This is cosign html  image
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosign Showcase</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; margin: 0; }
+        .container { text-align: center; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white; }
+        h1 { color: #333; }
+        p { color: #666; }
+        .signed { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cosign CI Showcase</h1>
+        <p>This container image has been successfully built and signed using Cosign in a GitHub Actions workflow.</p>
+        <p class="signed">Image Signature Verified!</p>
+    </div>
+</body>
+</html>
