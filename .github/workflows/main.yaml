@@ -6,7 +6,7 @@ name: 'Build and Sign Container Image'
 on:
   push:
     branches:
-      # This workflow will only run on pushes to the 'main' branch.
+      # This workflow will only run on pushes to the 'main' branch. 
       - 'main'
 
 # Environment variables are defined here to be used throughout the workflow.
@@ -78,4 +78,6 @@ jobs:
         # We are signing the immutable image digest (e.g., sha256:...)
         # rather than a mutable tag (e.g., :latest) for better security.
         # The '--yes' flag is for non-interactive confirmation.
-        run: cosign sign --yes "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.push.outputs.digest }}"
+        run: cosign sign --yes "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.push.outputs.digest }}" \
+              --certificate-identity-regexp "https://github.com/${{ github.repository_owner }}/.*" \
+              --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
